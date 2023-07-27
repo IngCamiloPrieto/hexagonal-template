@@ -6,9 +6,9 @@ import { CustomerName } from "./customerName";
 export class Customer extends AggregateRoot {
   readonly id: CustomerId;
   readonly name: CustomerName;
-  readonly email?: CustomerEmail;
+  readonly email: CustomerEmail;
 
-  constructor(id: CustomerId, name: CustomerName, email?: CustomerEmail) {
+  constructor(id: CustomerId, name: CustomerName, email: CustomerEmail) {
     super();
     this.id = id;
     this.name = name;
@@ -18,7 +18,7 @@ export class Customer extends AggregateRoot {
   static create(
     id: CustomerId,
     name: CustomerName,
-    email?: CustomerEmail
+    email: CustomerEmail
   ): Customer {
     const customer = new Customer(id, name, email);
     return customer;
@@ -36,7 +36,7 @@ export class Customer extends AggregateRoot {
     return {
       id: this.id.value,
       name: this.name.value,
-      email: this.email ? this.email.value : null
+      email: this.email.value
     };
   }
 }
