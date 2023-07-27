@@ -11,15 +11,18 @@
     "npm": ">=6.7.0"
   },
   "scripts": {
+    "dev:customer:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/customer/start.ts",
     "dev:mooc:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules  ./src/apps/mooc/backend/start.ts",
     "dev:backoffice:frontend": "cd ./src/apps/backoffice/frontend && npm start",
     "dev:backoffice:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/apps/backoffice/backend/start.ts",
     "lint": "prettier --write src/**/*.ts{,x}",
     "test": "npm run test:unit && npm run test:features",
     "test:unit": "NODE_ENV=test jest",
+    "start:customer:backend": "NODE_ENV=production node dist/src/apps/customer/start",
     "start:mooc:backend": "NODE_ENV=production node dist/src/apps/mooc/backend/start",
     "start:backoffice:backend": "NODE_ENV=production node dist/src/apps/backoffice/backend/start",
     "test:features": "npm run test:mooc:backend:features",
+    "test:customer:backend:features": "NODE_ENV=test cucumber-js -p customer_backend",
     "test:mooc:backend:features": "NODE_ENV=test cucumber-js -p mooc_backend",
     "test:backoffice:backend:features": "NODE_ENV=test cucumber-js -p backoffice_backend",
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
@@ -32,6 +35,7 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^7.11.0",
+    "@google-cloud/pubsub": "^3.7.3",
     "amqplib": "^0.8.0",
     "body-parser": "^1.19.0",
     "bodybuilder": "^2.4.0",
