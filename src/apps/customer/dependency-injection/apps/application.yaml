@@ -1,0 +1,16 @@
+services:
+  Apps.customer.controllers.StatusGetController:
+    class: ../../controllers/StatusGetController
+    arguments: []
+
+  Apps.customer.controllers.CustomerPostController:
+    class: ../../controllers/CustomerPostController
+    arguments: ['@Customer.CreateCustomerCommandHandler']
+
+  Apps.customer.controllers.CustomerPutController:
+    class: ../../controllers/CustomerPutController
+    arguments: ['@Customer.UpdateCustomerCommandHandler']
+
+  Apps.customer.controllers.CustomerDeleteController:
+    class: ../../controllers/CustomerDeleteController
+    arguments: ['@Customer.DeleteCustomerCommandHandler']

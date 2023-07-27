@@ -1,0 +1,69 @@
+services:
+  Customer.Shared.MongoConfig:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/persistence/mongo/MongoConfigFactory
+      method: 'createConfig'
+
+  Customer.Shared.PostgreConfig:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/persistence/postgre/TypeOrmConfigFactory
+      method: 'createConfig'
+
+  Customer.Shared.RabbitMQConfig:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/RabbitMQ/RabbitMQConfigFactory
+      method: 'createConfig'
+
+  Customer.Shared.domain.EventBus:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/RabbitMQ/RabbitMQEventBusFactory
+      method: 'create'
+    arguments:
+      [
+        '@Customer.Shared.DomainEventFailoverPublisher',
+        '@Customer.Shared.RabbitMQConnection',
+        '@Customer.Shared.RabbitMQqueueFormatter',
+        '@Customer.Shared.RabbitMQConfig'
+      ]
+
+  Customer.Shared.ConnectionManager:
+    factory:
+      class: ../../../../Contexts/Shared/infrastructure/persistence/typeorm/TypeOrmClientFactory
+      method: 'createClient'
+    arguments: ['customer', '@Customer.Shared.PostgreConfig']
+
+  Customer.Shared.RabbitMQQueueFormatter:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMQqueueFormatter
+    arguments: ['customer']
+
+  Customer.Shared.RabbitMQConnection:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMqConnection
+    arguments: ['@Customer.Shared.RabbitMQConfig']
+
+  Customer.Shared.RabbitMQqueueFormatter:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMQqueueFormatter
+    arguments: ['customer']
+
+  Customer.Shared.RabbitMQConfigurer:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMQConfigurer
+    arguments: ["@Customer.Shared.RabbitMQConnection", "@Customer.Shared.RabbitMQQueueFormatter"]
+
+  Customer.Shared.DomainEventFailoverPublisher:
+    class: ../../../../Contexts/Shared/infrastructure/EventBus/DomainEventFailoverPublisher/DomainEventFailoverPublisher
+    arguments: ['@Customer.Shared.ConnectionManager']
+
+  Customer.Shared.CommandHandlers:
+    class: ../../../../Contexts/Shared/infrastructure/CommandBus/CommandHandlers
+    arguments: ['!tagged commandHandler']
+
+  Customer.Shared.domain.CommandBus:
+    class: ../../../../Contexts/Shared/infrastructure/CommandBus/InMemoryCommandBus
+    arguments: ['@Customer.Shared.CommandHandlers']
+
+  Customer.Shared.QueryHandlers:
+    class: ../../../../Contexts/Shared/infrastructure/QueryBus/QueryHandlers
+    arguments: ['!tagged queryHandler']
+
+  Customer.Shared.domain.QueryBus:
+    class: ../../../../Contexts/Shared/infrastructure/QueryBus/InMemoryQueryBus
+    arguments: ['@Customer.Shared.QueryHandlers']

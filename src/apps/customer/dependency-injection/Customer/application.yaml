@@ -1,0 +1,34 @@
+services:
+  Customer.domain.CustomerRepository:
+    class: ../../../../Contexts/customer/infrastructure/persistence/TypeOrmCustomerRepository
+    arguments: ['@Customer.Shared.ConnectionManager']
+
+  Customer.application.CustomerCreator:
+    class: ../../../../Contexts/customer/application/Create/CustomerCreator
+    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+
+  Customer.application.CustomerUpdater:
+    class: ../../../../Contexts/customer/application/Update/CustomerUpdater
+    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+
+  Customer.application.CustomerDeleter:
+    class: ../../../../Contexts/customer/application/Delete/CustomerDeleter
+    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+
+  Customer.CreateCustomerCommandHandler:
+    class: ../../../../Contexts/customer/application/Create/CreateCustomerCommandHandler
+    arguments: ['@Customer.application.CustomerCreator']
+    tags:
+      - { name: 'commandHandler' }
+
+  Customer.UpdateCustomerCommandHandler:
+    class: ../../../../Contexts/customer/application/Update/UpdateCustomerCommandHandler
+    arguments: ['@Customer.application.CustomerUpdater']
+    tags:
+      - { name: 'commandHandler' }
+
+  Customer.DeleteCustomerCommandHandler:
+    class: ../../../../Contexts/customer/application/Delete/DeleteCustomerCommandHandler
+    arguments: ['@Customer.application.CustomerDeleter']
+    tags:
+      - { name: 'commandHandler' }
