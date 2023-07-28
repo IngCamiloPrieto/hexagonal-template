@@ -32,11 +32,18 @@ export class Customer extends AggregateRoot {
     );
   }
 
-  toPrimitives() {
+  toPrimitives(): PrimitivesCustomer {
     return {
       id: this.id.value,
       name: this.name.value,
       email: this.email.value
     };
   }
+}
+
+
+export type PrimitivesCustomer = {
+  id: string;
+  name: string;
+  email: string;
 }

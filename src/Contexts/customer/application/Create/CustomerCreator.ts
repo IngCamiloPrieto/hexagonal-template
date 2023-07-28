@@ -1,5 +1,6 @@
 import { EventBus } from '../../../Shared/domain/EventBus';
-import { Customer } from '../../domain/customer';
+import { Result } from '../../../Shared/domain/result';
+import { Customer, PrimitivesCustomer } from '../../domain/customer';
 import { CustomerEmail } from '../../domain/customerEmail';
 import { CustomerId } from '../../domain/customerId';
 import { CustomerName } from '../../domain/customerName';
@@ -9,16 +10,22 @@ import { CustomerCreateDomainEvent } from '../../domain/events/CustomerCreateDom
 export class CustomerCreator {
   constructor(private repository: CustomerRepository, private eventBus: EventBus) {}
 
-  async run(params: { id: CustomerId; name: CustomerName; email: CustomerEmail }): Promise<Customer> {
-    const customer = Customer.create(params.id, params.name, params.email);
+  async run(params: { id: string; name: string; email: string }): Promise<Result<PrimitivesCustomer>> {
+    const id = new CustomerId(params.id);
+    const name = new CustomerName(params.name);
+    const email = new CustomerEmail(params.email);
+    const customer = Customer.create(id, name, email);
     const customerCreated = await this.repository.add(customer);
+    const primitiveCustomer = customerCreated.toPrimitives();
     customer.record(
       new CustomerCreateDomainEvent({
         aggregateId: customer.id.value,
-        customer: customer.toPrimitives()
+        customer: primitiveCustomer
       })
     );
     await this.eventBus.publish(customer.pullDomainEvents());
-    return customerCreated;
+    const result = new Result<PrimitivesCustomer>();
+    result.setData(primitiveCustomer);
+    return result;
   }
 }
