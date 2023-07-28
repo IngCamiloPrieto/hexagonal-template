@@ -5,12 +5,12 @@ services:
 
   Apps.customer.controllers.CustomerPostController:
     class: ../../controllers/CustomerPostController
-    arguments: ['@Customer.CreateCustomerCommandHandler']
+    arguments: ['@Customer.application.CustomerCreator']
 
   Apps.customer.controllers.CustomerPutController:
     class: ../../controllers/CustomerPutController
-    arguments: ['@Customer.UpdateCustomerCommandHandler']
+    arguments: ['@Customer.application.CustomerUpdater']
 
   Apps.customer.controllers.CustomerDeleteController:
     class: ../../controllers/CustomerDeleteController
-    arguments: ['@Customer.DeleteCustomerCommandHandler']
+    arguments: ['@Customer.application.CustomerDeleter']

@@ -1,8 +1,10 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { CreateCustomerCommand } from '../../../Contexts/customer/domain/CreateCustomerCommand';
 import { Controller } from './Controller';
-import { CreateCustomerCommandHandler } from '../../../Contexts/customer/application/Create/CreateCustomerCommandHandler';
+import { CustomerId } from '../../../Contexts/customer/domain/customerId';
+import { CustomerName } from '../../../Contexts/customer/domain/customerName';
+import { CustomerEmail } from '../../../Contexts/customer/domain/customerEmail';
+import { CustomerCreator } from '../../../Contexts/customer/application/Create/CustomerCreator';
 
 type CustomerPostRequest = Request & {
   body: {
@@ -12,13 +14,14 @@ type CustomerPostRequest = Request & {
   };
 };
 export class CustomerPostController implements Controller {
-  constructor(private readonly createCustomerCommandHandler: CreateCustomerCommandHandler) {}
+  constructor(private readonly customerCreator: CustomerCreator) {}
 
   async run(req: CustomerPostRequest, res: Response) {
     try {
-      const { id, name, email } = req.body;
-      const createCustomerCommand = new CreateCustomerCommand({ id, name, email });
-      const response = await this.createCustomerCommandHandler.handle(createCustomerCommand);
+      const id = new CustomerId(req.body.id);
+      const name = new CustomerName(req.body.name);
+      const email = new CustomerEmail(req.body.email);
+      const response = await this.customerCreator.run({ id, name, email });
       res.status(httpStatus.CREATED).send(response.toPrimitives());
     } catch (error) {
       res.status(httpStatus.INTERNAL_SERVER_ERROR).send();

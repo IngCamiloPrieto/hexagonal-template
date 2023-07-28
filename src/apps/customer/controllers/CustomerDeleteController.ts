@@ -1,18 +1,17 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { DeleteCustomerCommand } from '../../../Contexts/customer/domain/DeleteCustomerCommand';
 import { Controller } from './Controller';
-import { DeleteCustomerCommandHandler } from '../../../Contexts/customer/application/Delete/DeleteCustomerCommandHandler';
+import { CustomerId } from '../../../Contexts/customer/domain/customerId';
+import { CustomerDeleter } from '../../../Contexts/customer/application/Delete/CustomerDeleter';
 
 type CustomerDeleteRequest = Request;
 export class CustomerDeleteController implements Controller {
-  constructor(private readonly deleteCustomerCommandHandler: DeleteCustomerCommandHandler) {}
+  constructor(private readonly customerDeleter: CustomerDeleter) {}
 
   async run(req: CustomerDeleteRequest, res: Response) {
     try {
-      const id = String(req.params.id);
-      const deleteCustomerCommand = new DeleteCustomerCommand({ id });
-      const customerDeleted = await this.deleteCustomerCommandHandler.handle(deleteCustomerCommand);
+      const id = new CustomerId(req.params.id);
+      const customerDeleted = await this.customerDeleter.run({ id });
       let response;
       if (customerDeleted) response = customerDeleted.toPrimitives();
       res.status(httpStatus.OK).send(response);

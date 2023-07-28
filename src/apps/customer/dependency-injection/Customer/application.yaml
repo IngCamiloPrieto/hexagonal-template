@@ -14,21 +14,3 @@ services:
   Customer.application.CustomerDeleter:
     class: ../../../../Contexts/customer/application/Delete/CustomerDeleter
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
-
-  Customer.CreateCustomerCommandHandler:
-    class: ../../../../Contexts/customer/application/Create/CreateCustomerCommandHandler
-    arguments: ['@Customer.application.CustomerCreator']
-    tags:
-      - { name: 'commandHandler' }
-
-  Customer.UpdateCustomerCommandHandler:
-    class: ../../../../Contexts/customer/application/Update/UpdateCustomerCommandHandler
-    arguments: ['@Customer.application.CustomerUpdater']
-    tags:
-      - { name: 'commandHandler' }
-
-  Customer.DeleteCustomerCommandHandler:
-    class: ../../../../Contexts/customer/application/Delete/DeleteCustomerCommandHandler
-    arguments: ['@Customer.application.CustomerDeleter']
-    tags:
-      - { name: 'commandHandler' }
