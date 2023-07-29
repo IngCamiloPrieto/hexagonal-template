@@ -33,19 +33,19 @@ services:
     arguments: ['customer', '@Customer.Shared.PostgreConfig']
 
   Customer.Shared.RabbitMQQueueFormatter:
-    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMQ/RabbitMQqueueFormatter
+    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQqueueFormatter
     arguments: ['customer']
 
   Customer.Shared.RabbitMQConnection:
-    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMQ/RabbitMqConnection
+    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMqConnection
     arguments: ['@Customer.Shared.RabbitMQConfig']
 
   Customer.Shared.RabbitMQqueueFormatter:
-    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMQ/RabbitMQqueueFormatter
+    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQqueueFormatter
     arguments: ['customer']
 
   Customer.Shared.RabbitMQConfigurer:
-    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMQ/RabbitMQConfigurer
+    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQConfigurer
     arguments: ["@Customer.Shared.RabbitMQConnection", "@Customer.Shared.RabbitMQQueueFormatter"]
 
   Customer.Shared.DomainEventFailoverPublisher:

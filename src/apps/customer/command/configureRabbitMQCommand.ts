@@ -1,7 +1,7 @@
 import { RabbitMQConfig } from '../../../contexts/shared/infrastructure/rabbitMQ/rabbitMQConfigFactory';
 import { DomainEventSubscribers } from '../../../contexts/shared/infrastructure/eventBus/domainEventSubscribers';
 import { RabbitMQConfigurer } from '../../../contexts/shared/infrastructure/eventBus/rabbitMq/rabbitMQConfigurer';
-import { RabbitMqConnection } from '../../../contexts/shared/infrastructure/eventBus/rabbitMQ/rabbitMqConnection';
+import { RabbitMqConnection } from '../../../contexts/shared/infrastructure/eventBus/rabbitMq/rabbitMqConnection';
 import container from '../dependency-injection';
 
 export class ConfigureRabbitMQCommand {
