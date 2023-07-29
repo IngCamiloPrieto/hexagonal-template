@@ -1,5 +1,5 @@
 import { Connection, createConnection, getConnection } from 'typeorm';
-import { TypeOrmConfig } from './TypeOrmConfig';
+import { TypeOrmConfig } from './typeOrmConfig';
 
 export class TypeOrmClientFactory {
   static async createClient(contextName: string, config: TypeOrmConfig): Promise<Connection> {

@@ -1,5 +1,5 @@
 import winston, { Logger as WinstonLoggerType } from 'winston';
-import Logger from '../domain/Logger';
+import Logger from '../domain/logger';
 
 enum Levels {
   DEBUG = 'debug',

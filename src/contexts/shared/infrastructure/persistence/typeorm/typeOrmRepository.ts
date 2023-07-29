@@ -1,5 +1,5 @@
 import { Connection, EntitySchema, Repository } from 'typeorm';
-import { AggregateRoot } from '../../../domain/AggregateRoot';
+import { AggregateRoot } from '../../../domain/aggregateRoot';
 
 export abstract class TypeOrmRepository<T extends AggregateRoot> {
   constructor(private _client: Promise<Connection>) {}

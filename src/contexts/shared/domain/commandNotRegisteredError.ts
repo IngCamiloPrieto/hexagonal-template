@@ -1,4 +1,4 @@
-import { Command } from './Command';
+import { Command } from './command';
 
 export class CommandNotRegisteredError extends Error {
   constructor(command: Command) {

@@ -1,6 +1,6 @@
-import { Command } from '../../domain/Command';
-import { CommandBus } from './../../domain/CommandBus';
-import { CommandHandlers } from './CommandHandlers';
+import { Command } from '../../domain/command';
+import { CommandBus } from './../../domain/commandBus';
+import { CommandHandlers } from './commandHandlers';
 
 export class InMemoryCommandBus implements CommandBus {
   constructor(private commandHandlers: CommandHandlers) {}

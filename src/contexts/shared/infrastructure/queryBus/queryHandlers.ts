@@ -1,7 +1,7 @@
-import { Query } from '../../domain/Query';
-import { QueryHandler } from '../../domain/QueryHandler';
-import { Response } from '../../domain/Response';
-import { QueryNotRegisteredError } from '../../domain/QueryNotRegisteredError';
+import { Query } from '../../domain/query';
+import { QueryHandler } from '../../domain/queryHandler';
+import { Response } from '../../domain/response';
+import { QueryNotRegisteredError } from '../../domain/queryNotRegisteredError';
 
 export class QueryHandlers extends Map<Query, QueryHandler<Query, Response>> {
   constructor(queryHandlers: Array<QueryHandler<Query, Response>>) {

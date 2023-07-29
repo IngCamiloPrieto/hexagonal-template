@@ -1,5 +1,5 @@
-import { DomainEventClass } from '../../domain/DomainEvent';
-import { DomainEventSubscribers } from './DomainEventSubscribers';
+import { DomainEventClass } from '../../domain/domainEvent';
+import { DomainEventSubscribers } from './domainEventSubscribers';
 
 type DomainEventJSON = {
   type: string;

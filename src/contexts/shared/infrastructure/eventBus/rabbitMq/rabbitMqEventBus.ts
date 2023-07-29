@@ -1,12 +1,12 @@
-import { DomainEvent } from '../../../domain/DomainEvent';
-import { EventBus } from '../../../domain/EventBus';
-import { DomainEventDeserializer } from '../DomainEventDeserializer';
-import { DomainEventFailoverPublisher } from '../DomainEventFailoverPublisher/DomainEventFailoverPublisher';
-import { DomainEventJsonSerializer } from '../DomainEventJsonSerializer';
-import { DomainEventSubscribers } from '../DomainEventSubscribers';
-import { RabbitMqConnection } from './RabbitMqConnection';
-import { RabbitMQConsumerFactory } from './RabbitMQConsumerFactory';
-import { RabbitMQqueueFormatter } from './RabbitMQqueueFormatter';
+import { DomainEvent } from '../../../domain/domainEvent';
+import { EventBus } from '../../../domain/eventBus';
+import { DomainEventDeserializer } from '../domainEventDeserializer';
+import { DomainEventFailoverPublisher } from '../domainEventFailoverPublisher/domainEventFailoverPublisher';
+import { DomainEventJsonSerializer } from '../domainEventJsonSerializer';
+import { DomainEventSubscribers } from '../domainEventSubscribers';
+import { RabbitMqConnection } from './rabbitMqConnection';
+import { RabbitMQConsumerFactory } from './rabbitMQConsumerFactory';
+import { RabbitMQqueueFormatter } from './rabbitMQqueueFormatter';
 
 export class RabbitMQEventBus implements EventBus {
   private failoverPublisher: DomainEventFailoverPublisher;

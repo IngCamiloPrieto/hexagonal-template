@@ -1,4 +1,4 @@
-import { Query } from './Query';
+import { Query } from './query';
 
 export class QueryNotRegisteredError extends Error {
   constructor(query: Query) {

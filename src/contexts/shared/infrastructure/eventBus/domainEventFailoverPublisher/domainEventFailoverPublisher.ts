@@ -1,7 +1,7 @@
 import { Collection, MongoClient } from 'mongodb';
-import { DomainEvent } from '../../../domain/DomainEvent';
-import { DomainEventDeserializer } from '../DomainEventDeserializer';
-import { DomainEventJsonSerializer } from '../DomainEventJsonSerializer';
+import { DomainEvent } from '../../../domain/domainEvent';
+import { DomainEventDeserializer } from '../domainEventDeserializer';
+import { DomainEventJsonSerializer } from '../domainEventJsonSerializer';
 
 export class DomainEventFailoverPublisher {
   static collectionName = 'DomainEvents';

@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { Controller } from './Controller';
-import { CustomerId } from '../../../Contexts/customer/domain/customerId';
-import { CustomerName } from '../../../Contexts/customer/domain/customerName';
-import { CustomerEmail } from '../../../Contexts/customer/domain/customerEmail';
-import { CustomerUpdater } from '../../../Contexts/customer/application/Update/CustomerUpdater';
+import { Controller } from './controller';
+import { CustomerId } from '../../../contexts/customer/domain/customerId';
+import { CustomerName } from '../../../contexts/customer/domain/customerName';
+import { CustomerEmail } from '../../../contexts/customer/domain/customerEmail';
+import { CustomerUpdater } from '../../../contexts/customer/application/update/customerUpdater';
 
 type CustomerPutRequest = Request & {
   body: {

@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
-import { Controller } from './Controller';
-import { CustomerId } from '../../../Contexts/customer/domain/customerId';
-import { CustomerDeleter } from '../../../Contexts/customer/application/Delete/CustomerDeleter';
+import { Controller } from './controller';
+import { CustomerId } from '../../../contexts/customer/domain/customerId';
+import { CustomerDeleter } from '../../../contexts/customer/application/delete/customerDeleter';
 
 type CustomerDeleteRequest = Request;
 export class CustomerDeleteController implements Controller {

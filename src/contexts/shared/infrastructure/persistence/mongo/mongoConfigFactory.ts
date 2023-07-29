@@ -1,5 +1,5 @@
 import config from '../../../config';
-import MongoConfig from '../../../../Shared/infrastructure/persistence/mongo/MongoConfig';
+import MongoConfig from '../../../../shared/infrastructure/persistence/mongo/mongoConfig';
 
 export class MongoConfigFactory {
   static createConfig(): MongoConfig {

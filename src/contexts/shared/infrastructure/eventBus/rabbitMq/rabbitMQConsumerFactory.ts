@@ -1,8 +1,8 @@
-import { DomainEvent } from '../../../domain/DomainEvent';
-import { DomainEventSubscriber } from '../../../domain/DomainEventSubscriber';
-import { DomainEventDeserializer } from '../DomainEventDeserializer';
-import { RabbitMqConnection } from './RabbitMqConnection';
-import { RabbitMQConsumer } from './RabbitMQConsumer';
+import { DomainEvent } from '../../../domain/domainEvent';
+import { DomainEventSubscriber } from '../../../domain/domainEventSubscriber';
+import { DomainEventDeserializer } from '../domainEventDeserializer';
+import { RabbitMqConnection } from './rabbitMqConnection';
+import { RabbitMQConsumer } from './rabbitMQConsumer';
 
 export class RabbitMQConsumerFactory {
   constructor(

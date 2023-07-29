@@ -2,9 +2,9 @@ import { Router, Request, Response } from 'express';
 import container from '../dependency-injection';
 import { validateReqSchema } from '.';
 import { postSchema, putSchema, deleteSchema } from './schemas';
-import { CustomerPostController } from '../controllers/CustomerPostController';
-import { CustomerPutController } from '../controllers/CustomerPutController';
-import { CustomerDeleteController } from '../controllers/CustomerDeleteController';
+import { CustomerPostController } from '../controllers/customerPostController';
+import { CustomerPutController } from '../controllers/customerPutController';
+import { CustomerDeleteController } from '../controllers/customerDeleteController';
 
 export const register = (router: Router) => {
   const relativeBaseUrl: String = '/customers';

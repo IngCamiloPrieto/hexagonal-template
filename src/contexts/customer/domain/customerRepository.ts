@@ -1,4 +1,4 @@
-import { Criteria } from '../../Shared/domain/criteria/Criteria';
+import { Criteria } from '../../shared/domain/criteria/criteria';
 import { Customer } from './customer';
 import { CustomerId } from './customerId';
 

@@ -1,16 +1,16 @@
 services:
   Customer.domain.CustomerRepository:
-    class: ../../../../Contexts/customer/infrastructure/persistence/TypeOrmCustomerRepository
+    class: ../../../../contexts/customer/infrastructure/persistence/TypeOrmCustomerRepository
     arguments: ['@Customer.Shared.ConnectionManager']
 
   Customer.application.CustomerCreator:
-    class: ../../../../Contexts/customer/application/Create/CustomerCreator
+    class: ../../../../contexts/customer/application/create/CustomerCreator
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
 
   Customer.application.CustomerUpdater:
-    class: ../../../../Contexts/customer/application/Update/CustomerUpdater
+    class: ../../../../contexts/customer/application/update/CustomerUpdater
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
 
   Customer.application.CustomerDeleter:
-    class: ../../../../Contexts/customer/application/Delete/CustomerDeleter
+    class: ../../../../contexts/customer/application/delete/CustomerDeleter
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']

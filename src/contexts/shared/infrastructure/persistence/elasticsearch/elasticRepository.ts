@@ -2,10 +2,10 @@ import { Client as ElasticClient } from '@elastic/elasticsearch';
 import { ResponseError } from '@elastic/elasticsearch/lib/errors';
 import bodybuilder, { Bodybuilder } from 'bodybuilder';
 import httpStatus from 'http-status';
-import { AggregateRoot } from '../../../domain/AggregateRoot';
-import { Criteria } from '../../../domain/criteria/Criteria';
-import ElasticConfig from './ElasticConfig';
-import { ElasticCriteriaConverter } from './ElasticCriteriaConverter';
+import { AggregateRoot } from '../../../domain/aggregateRoot';
+import { Criteria } from '../../../domain/criteria/criteria';
+import ElasticConfig from './elasticConfig';
+import { ElasticCriteriaConverter } from './elasticCriteriaConverter';
 
 interface SearchResult<T> {
   hits: SearchHitsMetadata<T>;

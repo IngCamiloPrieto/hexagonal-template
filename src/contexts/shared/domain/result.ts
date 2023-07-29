@@ -1,4 +1,4 @@
-import { Nullable } from './Nullable';
+import { Nullable } from './nullable';
 
 export class Result<T> {
   data: Nullable<T> = null;

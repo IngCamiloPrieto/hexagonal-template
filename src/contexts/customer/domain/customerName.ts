@@ -1,4 +1,4 @@
-import { StringValueObject } from "../../Shared/domain/value-object/StringValueObject";
+import { StringValueObject } from "../../shared/domain/valueObject/stringValueObject";
 import { CustomerNameLengthExceeded } from "./customerNameLengthExceeded";
 
 export class CustomerName extends StringValueObject {

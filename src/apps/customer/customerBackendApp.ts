@@ -1,8 +1,8 @@
-import { EventBus } from '../../Contexts/Shared/domain/EventBus';
+import { EventBus } from '../../contexts/shared/domain/eventBus';
 import container from './dependency-injection';
-import { DomainEventSubscribers } from '../../Contexts/Shared/infrastructure/EventBus/DomainEventSubscribers';
+import { DomainEventSubscribers } from '../../contexts/shared/infrastructure/eventBus/domainEventSubscribers';
 import { Server } from './server';
-import { RabbitMqConnection } from '../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMqConnection';
+import { RabbitMqConnection } from '../../contexts/shared/infrastructure/eventBus/rabbitMq/rabbitMqConnection';
 
 export class CustomerBackendApp {
   server?: Server;

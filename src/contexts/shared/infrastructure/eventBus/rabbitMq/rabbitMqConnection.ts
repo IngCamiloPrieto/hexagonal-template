@@ -1,6 +1,6 @@
 import amqplib, { ConsumeMessage } from 'amqplib';
-import { ConnectionSettings } from './ConnectionSettings';
-import { RabbitMQExchangeNameFormatter } from './RabbitMQExchangeNameFormatter';
+import { ConnectionSettings } from './connectionSettings';
+import { RabbitMQExchangeNameFormatter } from './rabbitMQExchangeNameFormatter';
 
 export class RabbitMqConnection {
   private connectionSettings: ConnectionSettings;

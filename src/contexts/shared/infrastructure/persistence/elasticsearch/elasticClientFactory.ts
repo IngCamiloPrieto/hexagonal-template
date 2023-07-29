@@ -1,6 +1,6 @@
 import { Client as ElasticClient } from '@elastic/elasticsearch';
-import { Nullable } from '../../../domain/Nullable';
-import ElasticConfig from './ElasticConfig';
+import { Nullable } from '../../../domain/nullable';
+import ElasticConfig from './elasticConfig';
 
 export class ElasticClientFactory {
   private static clients: { [key: string]: ElasticClient } = {};

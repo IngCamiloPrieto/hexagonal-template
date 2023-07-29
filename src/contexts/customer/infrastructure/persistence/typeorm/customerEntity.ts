@@ -1,5 +1,5 @@
 import { EntitySchema } from 'typeorm';
-import { ValueObjectTransformer } from '../../../../Shared/infrastructure/persistence/typeorm/ValueObjectTransformer';
+import { ValueObjectTransformer } from '../../../../shared/infrastructure/persistence/typeorm/valueObjectTransformer';
 import { CustomerId } from '../../../domain/customerId';
 import { Customer } from '../../../domain/customer';
 import { CustomerEmail } from '../../../domain/customerEmail';

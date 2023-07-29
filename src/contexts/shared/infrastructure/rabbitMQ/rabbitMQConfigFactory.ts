@@ -1,5 +1,5 @@
-import { ConnectionSettings } from '../../../Shared/infrastructure/EventBus/RabbitMQ/ConnectionSettings';
-import { ExchangeSetting } from '../../../Shared/infrastructure/EventBus/RabbitMQ/ExchangeSetting';
+import { ConnectionSettings } from '../../../shared/infrastructure/eventBus/rabbitMq/connectionSettings';
+import { ExchangeSetting } from '../../../shared/infrastructure/eventBus/rabbitMq/exchangeSetting';
 import config from '../../config';
 
 export type RabbitMQConfig = {

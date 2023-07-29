@@ -1,4 +1,4 @@
-import { CustomerBackendApp } from './CustomerBackendApp';
+import { CustomerBackendApp } from './customerBackendApp';
 
 try {
   new CustomerBackendApp().start();

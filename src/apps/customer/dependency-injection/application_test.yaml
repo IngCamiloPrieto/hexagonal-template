@@ -3,5 +3,5 @@ imports:
 
 services:
   Customer.EnvironmentArranger:
-    class: ../../../../../tests/Contexts/Shared/infrastructure/mongo/MongoEnvironmentArranger
+    class: ../../../../../tests/contexts/shared/infrastructure/mongo/MongoEnvironmentArranger
     arguments: ['@Customer.Shared.ConnectionManager']

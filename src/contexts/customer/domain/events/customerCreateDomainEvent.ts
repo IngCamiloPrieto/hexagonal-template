@@ -1,4 +1,4 @@
-import { DomainEvent } from '../../../Shared/domain/DomainEvent';
+import { DomainEvent } from '../../../shared/domain/domainEvent';
 
 type CustomerCreatedAttributes = { id: string; name: string; email: string };
 

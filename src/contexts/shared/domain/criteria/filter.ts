@@ -1,7 +1,7 @@
-import { InvalidArgumentError } from '../value-object/InvalidArgumentError';
-import { FilterField } from './FilterField';
-import { FilterOperator } from './FilterOperator';
-import { FilterValue } from './FilterValue';
+import { InvalidArgumentError } from '../valueObject/invalidArgumentError';
+import { FilterField } from './filterField';
+import { FilterOperator } from './filterOperator';
+import { FilterValue } from './filterValue';
 
 export class Filter {
   readonly field: FilterField;

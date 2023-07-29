@@ -1,7 +1,7 @@
 import { Collection, MongoClient } from 'mongodb';
-import { MongoCriteriaConverter } from '../../../../Backoffice/Courses/infrastructure/persistence/MongoCriteriaConverter';
-import { AggregateRoot } from '../../../domain/AggregateRoot';
-import { Criteria } from '../../../domain/criteria/Criteria';
+import { MongoCriteriaConverter } from '../../../../backoffice/courses/infrastructure/persistence/mongoCriteriaConverter';
+import { AggregateRoot } from '../../../domain/aggregateRoot';
+import { Criteria } from '../../../domain/criteria/criteria';
 
 export abstract class MongoRepository<T extends AggregateRoot> {
   private criteriaConverter: MongoCriteriaConverter;

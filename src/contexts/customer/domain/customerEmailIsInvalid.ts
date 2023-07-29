@@ -1,3 +1,3 @@
-import { InvalidArgumentError } from "../../Shared/domain/value-object/InvalidArgumentError";
+import { InvalidArgumentError } from "../../shared/domain/valueObject/invalidArgumentError";
 
 export class CustomerEmailIsInvalid extends InvalidArgumentError {}

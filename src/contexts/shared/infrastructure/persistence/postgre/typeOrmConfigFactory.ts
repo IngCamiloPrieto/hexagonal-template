@@ -1,4 +1,4 @@
-import { TypeOrmConfig } from '../typeorm/TypeOrmConfig';
+import { TypeOrmConfig } from '../typeorm/typeOrmConfig';
 import config from '../../../config';
 
 export class TypeOrmConfigFactory {

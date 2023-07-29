@@ -1,7 +1,7 @@
-import { DomainEvent } from '../../../domain/DomainEvent';
-import { EventBus } from '../../../domain/EventBus';
-import { DomainEventSubscribers } from '../DomainEventSubscribers';
-import { PubSubConfigurer } from './PubSubConfigurer';
+import { DomainEvent } from '../../../domain/domainEvent';
+import { EventBus } from '../../../domain/eventBus';
+import { DomainEventSubscribers } from '../domainEventSubscribers';
+import { PubSubConfigurer } from './pubSubConfigurer';
 
 export class PubSubEventBus implements EventBus {
   constructor(private readonly pubSubConfigurer: PubSubConfigurer) {}

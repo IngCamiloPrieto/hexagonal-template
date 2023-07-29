@@ -1,8 +1,8 @@
-import { EventBus } from '../../../Shared/domain/EventBus';
+import { EventBus } from '../../../shared/domain/eventBus';
 import { Customer } from '../../domain/customer';
 import { CustomerId } from '../../domain/customerId';
 import { CustomerRepository } from '../../domain/customerRepository';
-import { CustomerDeleteDomainEvent } from '../../domain/events/CustomerDeleteDomainEvent';
+import { CustomerDeleteDomainEvent } from '../../domain/events/customerDeleteDomainEvent';
 
 export class CustomerDeleter {
   constructor(private repository: CustomerRepository, private eventBus: EventBus) {}

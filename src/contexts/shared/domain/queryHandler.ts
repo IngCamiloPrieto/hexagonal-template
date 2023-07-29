@@ -1,5 +1,5 @@
-import { Query } from './Query';
-import { Response } from './Response';
+import { Query } from './query';
+import { Response } from './response';
 
 export interface QueryHandler<Q extends Query, R extends Response> {
   subscribedTo(): Query;

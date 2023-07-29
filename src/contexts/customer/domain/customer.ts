@@ -1,4 +1,4 @@
-import { AggregateRoot } from "../../Shared/domain/AggregateRoot";
+import { AggregateRoot } from "../../shared/domain/aggregateRoot";
 import { CustomerEmail } from "./customerEmail";
 import { CustomerId } from "./customerId";
 import { CustomerName } from "./customerName";
