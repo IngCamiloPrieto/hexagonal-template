@@ -14,7 +14,6 @@ export class CustomerDeleter {
     const customerId = new CustomerId(params.id);
     let customer = await this.repository.find(customerId);
     if (!customer) throw new CustomerNotExist();
-
     await this.repository.delete(customer);
     customer = CustomerDelete.handle(customer);
     await this.eventBus.publish(customer.pullDomainEvents());

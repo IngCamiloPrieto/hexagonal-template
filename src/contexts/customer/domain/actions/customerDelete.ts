@@ -1,7 +1,7 @@
 import { Customer } from '../customer';
 import { CustomerDeleteDomainEvent } from '../events/customerDeleteDomainEvent';
 
-export class CustomerDelete extends Customer {
+export class CustomerDelete {
   static handle(customer: Customer): Customer {
     customer.record(
       new CustomerDeleteDomainEvent({

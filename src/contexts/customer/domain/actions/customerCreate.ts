@@ -5,7 +5,7 @@ import { CustomerId } from '../valueObjects/customerId';
 import { CustomerName } from '../valueObjects/customerName';
 import { CustomerStates, CustomerStatus } from '../valueObjects/customerStatus';
 
-export class CustomerCreate extends Customer {
+export class CustomerCreate {
   static handle(id: CustomerId, name: CustomerName, email: CustomerEmail): Customer {
     const status = new CustomerStatus(CustomerStates.ACTIVE);
     const customer = new Customer(id, name, email, status);

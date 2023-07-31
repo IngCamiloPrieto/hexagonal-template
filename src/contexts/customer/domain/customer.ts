@@ -6,9 +6,9 @@ import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus';
 
 export class Customer extends AggregateRoot {
   readonly id: CustomerId;
-  readonly name: CustomerName;
-  readonly email: CustomerEmail;
-  readonly status: CustomerStatus;
+  public name: CustomerName;
+  public email: CustomerEmail;
+  public status: CustomerStatus;
 
   constructor(id: CustomerId, name: CustomerName, email: CustomerEmail, status: CustomerStatus) {
     super();

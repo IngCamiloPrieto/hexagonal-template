@@ -1,20 +1,18 @@
 import { Customer } from '../customer';
 import { CustomerInactivateDomainEvent } from '../events/customerInactivateDomainEvent';
-import { CustomerStates } from '../valueObjects/customerStatus';
+import { CustomerStates, CustomerStatus } from '../valueObjects/customerStatus';
 
-export class CustomerInactivate extends Customer {
+export class CustomerInactivate {
   static handle(customer: Customer): Customer {
-    const rawCustomer = customer.toPrimitives();
-    rawCustomer.status = CustomerStates.INACTIVE;
-    const customerAggregate = Customer.fromPrimitives(rawCustomer);
-    customerAggregate.record(
+    customer.status  = new CustomerStatus( CustomerStates.INACTIVE);
+    customer.record(
       new CustomerInactivateDomainEvent({
-        aggregateId: customerAggregate.id.value,
+        aggregateId: customer.id.value,
         customer: {
-          id: customerAggregate.id.value
+          id: customer.id.value
         }
       })
     );
-    return customerAggregate;
+    return customer;
   }
 }
