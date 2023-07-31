@@ -1,7 +1,7 @@
 import { EntitySchema } from 'typeorm';
 import { Nullable } from '../../../shared/domain/nullable';
 import { TypeOrmRepository } from '../../../shared/infrastructure/persistence/typeorm/typeOrmRepository';
-import { CustomerId } from '../../domain/customerId';
+import { CustomerId } from '../../domain/valueObjects/customerId';
 import { Customer } from '../../domain/customer';
 import { CustomerRepository } from '../../domain/customerRepository';
 import { CustomerEntity } from './typeorm/customerEntity';

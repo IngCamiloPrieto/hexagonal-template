@@ -7,9 +7,13 @@ services:
     class: ../../controllers/CustomerPostController
     arguments: ['@Customer.application.CustomerCreator']
 
-  Apps.customer.controllers.CustomerPutController:
-    class: ../../controllers/CustomerPutController
-    arguments: ['@Customer.application.CustomerUpdater']
+  Apps.customer.controllers.CustomerGetByIdController:
+    class: ../../controllers/CustomerGetByIdController
+    arguments: ['@Customer.application.CustomerGetById']
+
+  Apps.customer.controllers.CustomerInactivatePutController:
+    class: ../../controllers/CustomerInactivatePutController
+    arguments: ['@Customer.application.CustomerInactivator']
 
   Apps.customer.controllers.CustomerDeleteController:
     class: ../../controllers/CustomerDeleteController

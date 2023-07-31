@@ -1,5 +1,6 @@
 import { postSchema } from './post.schema';
-import { putSchema } from './put.schema';
+import { getByIdSchema } from './getById.schema';
+import { putInactivateSchema } from './putInactivate.schema';
 import { deleteSchema } from './delete.schema';
 
-export { postSchema, putSchema, deleteSchema };
+export { postSchema, getByIdSchema, putInactivateSchema, deleteSchema };

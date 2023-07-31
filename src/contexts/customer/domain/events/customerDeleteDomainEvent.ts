@@ -1,6 +1,6 @@
 import { DomainEvent } from '../../../shared/domain/domainEvent';
 
-type CustomerDeletedAttributes = { id: string; name: string; email: string };
+type CustomerDeletedAttributes = { id: string };
 
 export class CustomerDeleteDomainEvent extends DomainEvent {
   static readonly EVENT_NAME = 'customer.deleted';

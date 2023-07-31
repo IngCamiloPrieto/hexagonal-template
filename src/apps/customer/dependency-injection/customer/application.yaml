@@ -7,8 +7,12 @@ services:
     class: ../../../../contexts/customer/application/create/CustomerCreator
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
 
-  Customer.application.CustomerUpdater:
-    class: ../../../../contexts/customer/application/update/CustomerUpdater
+  Customer.application.CustomerGetById:
+    class: ../../../../contexts/customer/application/getById/CustomerGetById
+    arguments: ['@Customer.domain.CustomerRepository']
+
+  Customer.application.CustomerInactivator:
+    class: ../../../../contexts/customer/application/inactivate/CustomerInactivator
     arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
 
   Customer.application.CustomerDeleter:

@@ -1,6 +1,6 @@
 import { Nullable } from '../../../shared/domain/nullable';
 import { MongoRepository } from '../../../shared/infrastructure/persistence/mongo/mongoRepository';
-import { CustomerId } from '../../domain/customerId';
+import { CustomerId } from '../../domain/valueObjects/customerId';
 import { Customer } from '../../domain/customer';
 import { CustomerRepository } from '../../domain/customerRepository';
 

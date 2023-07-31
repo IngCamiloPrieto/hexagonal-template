@@ -1,34 +1,29 @@
-import { AggregateRoot } from "../../shared/domain/aggregateRoot";
-import { CustomerEmail } from "./customerEmail";
-import { CustomerId } from "./customerId";
-import { CustomerName } from "./customerName";
+import { AggregateRoot } from '../../shared/domain/aggregateRoot';
+import { CustomerEmail } from './valueObjects/customerEmail';
+import { CustomerId } from './valueObjects/customerId';
+import { CustomerName } from './valueObjects/customerName';
+import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus';
 
 export class Customer extends AggregateRoot {
   readonly id: CustomerId;
   readonly name: CustomerName;
   readonly email: CustomerEmail;
+  readonly status: CustomerStatus;
 
-  constructor(id: CustomerId, name: CustomerName, email: CustomerEmail) {
+  constructor(id: CustomerId, name: CustomerName, email: CustomerEmail, status: CustomerStatus) {
     super();
     this.id = id;
     this.name = name;
     this.email = email;
+    this.status = status;
   }
 
-  static create(
-    id: CustomerId,
-    name: CustomerName,
-    email: CustomerEmail
-  ): Customer {
-    const customer = new Customer(id, name, email);
-    return customer;
-  }
-
-  static fromPrimitives(plainData: { id: string; name: string; email: string }): Customer {
+  static fromPrimitives(plainData: { id: string; name: string; email: string, status: CustomerStates }): Customer {
     return new Customer(
       new CustomerId(plainData.id),
       new CustomerName(plainData.name),
-      new CustomerEmail(plainData.email)
+      new CustomerEmail(plainData.email),
+      new CustomerStatus(plainData.status)
     );
   }
 
@@ -36,14 +31,15 @@ export class Customer extends AggregateRoot {
     return {
       id: this.id.value,
       name: this.name.value,
-      email: this.email.value
+      email: this.email.value,
+      status: this.status.value as CustomerStates
     };
   }
 }
-
 
 export type PrimitivesCustomer = {
   id: string;
   name: string;
   email: string;
-}
+  status: CustomerStates;
+};

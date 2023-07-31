@@ -1,9 +1,10 @@
 import { EntitySchema } from 'typeorm';
 import { ValueObjectTransformer } from '../../../../shared/infrastructure/persistence/typeorm/valueObjectTransformer';
-import { CustomerId } from '../../../domain/customerId';
+import { CustomerId } from '../../../domain/valueObjects/customerId';
 import { Customer } from '../../../domain/customer';
-import { CustomerEmail } from '../../../domain/customerEmail';
-import { CustomerName } from '../../../domain/customerName';
+import { CustomerEmail } from '../../../domain/valueObjects/customerEmail';
+import { CustomerName } from '../../../domain/valueObjects/customerName';
+import { CustomerStatus } from '../../../domain/valueObjects/customerStatus';
 
 export const CustomerEntity = new EntitySchema<Customer>({
   name: 'Customer',
@@ -22,6 +23,10 @@ export const CustomerEntity = new EntitySchema<Customer>({
     email: {
       type: String,
       transformer: ValueObjectTransformer(CustomerEmail)
+    },
+    status: {
+      type: String,
+      transformer: ValueObjectTransformer(CustomerStatus)
     }
   }
 });
