@@ -1,20 +1,25 @@
 services:
   customer.domain.CustomerRepository:
     class: ../../../../contexts/customer/infrastructure/persistence/typeOrmCustomer.repository
+    main: TypeOrmCustomerRepository
     arguments: ['@customer.shared.ConnectionManager']
 
   customer.application.CustomerCreator:
     class: ../../../../contexts/customer/application/create/customerCreator.useCase
+    main: CustomerCreator
     arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']
 
   customer.application.CustomerGetById:
     class: ../../../../contexts/customer/application/getById/customerGetById.useCase
+    main: CustomerGetById
     arguments: ['@customer.domain.CustomerRepository']
 
   customer.application.CustomerInactivator:
     class: ../../../../contexts/customer/application/inactivate/customerInactivator.useCase
+    main: CustomerInactivator
     arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']
 
   customer.application.CustomerDeleter:
     class: ../../../../contexts/customer/application/delete/customerDeleter.useCase
+    main: CustomerDeleter
     arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']

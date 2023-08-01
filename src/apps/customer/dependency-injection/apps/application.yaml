@@ -1,20 +1,25 @@
 services:
   apps.customer.controllers.StatusGetController:
     class: ../../controllers/statusGet.controller
+    main: StatusGetController
     arguments: []
 
   apps.customer.controllers.CustomerPostController:
     class: ../../controllers/customerPost.controller
+    main: CustomerPostController
     arguments: ['@customer.application.CustomerCreator']
 
   apps.customer.controllers.CustomerGetByIdController:
     class: ../../controllers/customerGetById.controller
+    main: CustomerGetByIdController
     arguments: ['@customer.application.CustomerGetById']
 
   apps.customer.controllers.CustomerInactivatePutController:
     class: ../../controllers/customerInactivatePut.controller
+    main: CustomerInactivatePutController
     arguments: ['@customer.application.CustomerInactivator']
 
   apps.customer.controllers.CustomerDeleteController:
     class: ../../controllers/customerDelete.controller
+    main: CustomerDeleteController
     arguments: ['@customer.application.CustomerDeleter']
