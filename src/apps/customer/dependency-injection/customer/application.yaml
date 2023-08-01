@@ -1,6 +1,6 @@
 services:
   customer.domain.CustomerRepository:
-    class: ../../../../contexts/customer/infrastructure/persistence/typeOrmCustomer.repository.ts
+    class: ../../../../contexts/customer/infrastructure/persistence/typeOrmCustomer.repository
     arguments: ['@customer.shared.ConnectionManager']
 
   customer.application.CustomerCreator:
