@@ -108,8 +108,8 @@ const customerConfig = convict({
       env: 'RABBITMQ_RETRY_TTL',
       default: 1000
     }
-  },  
-  pubsub:{
+  },
+  pubsub: {
     topic: {
       doc: 'GCP PubSub topic name',
       format: String,
@@ -122,7 +122,7 @@ const customerConfig = convict({
       env: 'PUBSUB_SUBSCRIPTION_NAME',
       default: 'projects/gc-k-mex-amex-b2b-dev-2/subscriptions/microservice1'
     }
-  },
+  }
 });
 
 customerConfig.loadFile([__dirname + '/default.json', __dirname + '/' + customerConfig.get('env') + '.json']);

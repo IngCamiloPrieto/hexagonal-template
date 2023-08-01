@@ -1,3 +1,3 @@
-import { InvalidArgumentError } from "../../../shared/domain/valueObject/invalidArgument.error";
+import { InvalidArgumentError } from '../../../shared/domain/valueObject/invalidArgument.error';
 
 export class CustomerNameLengthExceeded extends InvalidArgumentError {}

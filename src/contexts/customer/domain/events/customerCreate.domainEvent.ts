@@ -1,6 +1,6 @@
 import { DomainEvent } from '../../../shared/domain/domainEvent';
 
-type CustomerCreatedAttributes = { id: string; name: string; email: string, status: string };
+type CustomerCreatedAttributes = { id: string; name: string; email: string; status: string };
 
 export class CustomerCreateDomainEvent extends DomainEvent {
   static readonly EVENT_NAME = 'customer.created';

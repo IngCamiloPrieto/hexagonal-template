@@ -4,7 +4,7 @@ import { CustomerStates, CustomerStatus } from '../valueObjects/customerStatus.v
 
 export class CustomerInactivate {
   static handle(customer: Customer): Customer {
-    customer.status  = new CustomerStatus( CustomerStates.INACTIVE);
+    customer.status = new CustomerStatus(CustomerStates.INACTIVE);
     customer.record(
       new CustomerInactivateDomainEvent({
         aggregateId: customer.id.value,

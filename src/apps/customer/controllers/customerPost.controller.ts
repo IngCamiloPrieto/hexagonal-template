@@ -15,7 +15,7 @@ export class CustomerPostController implements Controller {
 
   async run(req: CustomerPostRequest, res: Response) {
     try {
-      const {id, name, email} = req.body;
+      const { id, name, email } = req.body;
       const response = await this.customerCreator.run({ id, name, email });
       res.status(httpStatus.CREATED).send(response);
     } catch (error) {

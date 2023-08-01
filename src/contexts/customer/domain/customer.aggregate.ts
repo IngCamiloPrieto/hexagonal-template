@@ -18,7 +18,7 @@ export class Customer extends AggregateRoot {
     this.status = status;
   }
 
-  static fromPrimitives(plainData: { id: string; name: string; email: string, status: CustomerStates }): Customer {
+  static fromPrimitives(plainData: { id: string; name: string; email: string; status: CustomerStates }): Customer {
     return new Customer(
       new CustomerId(plainData.id),
       new CustomerName(plainData.name),
