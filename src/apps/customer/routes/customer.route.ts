@@ -2,25 +2,25 @@ import { Router, Request, Response } from 'express';
 import container from '../dependency-injection';
 import { validateReqSchema } from '.';
 import { postSchema, getByIdSchema, putInactivateSchema, deleteSchema } from './schemas';
-import { CustomerPostController } from '../controllers/customerPostController';
-import { CustomerInactivatePutController } from '../controllers/customerInactivatePutController';
-import { CustomerDeleteController } from '../controllers/customerDeleteController';
-import { CustomerGetByIdController } from '../controllers/customerGetByIdController';
+import { CustomerPostController } from '../controllers/customerPost.controller';
+import { CustomerInactivatePutController } from '../controllers/customerInactivatePut.controller';
+import { CustomerDeleteController } from '../controllers/customerDelete.controller';
+import { CustomerGetByIdController } from '../controllers/customerGetById.controller';
 
 export const register = (router: Router) => {
   const relativeBaseUrl: string = '/customers';
 
   const customerPostController = container.get<CustomerPostController>(
-    'Apps.customer.controllers.CustomerPostController'
+    'apps.customer.controllers.CustomerPostController'
   );
   const customerGetByIdController = container.get<CustomerGetByIdController>(
-    'Apps.customer.controllers.CustomerGetByIdController'
+    'apps.customer.controllers.CustomerGetByIdController'
   );
   const customerInactivatePutController = container.get<CustomerInactivatePutController>(
-    'Apps.customer.controllers.CustomerInactivatePutController'
+    'apps.customer.controllers.CustomerInactivatePutController'
   );
   const customerDeleteController = container.get<CustomerDeleteController>(
-    'Apps.customer.controllers.CustomerDeleteController'
+    'apps.customer.controllers.CustomerDeleteController'
   );
 
   router.post(`${relativeBaseUrl}/`, postSchema, validateReqSchema, (req: Request, res: Response) =>

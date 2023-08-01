@@ -1,5 +1,5 @@
-import { StringValueObject } from '../../../shared/domain/valueObject/stringValueObject';
-import { CustomerStatusInvalidEnumValue } from '../errors/customerStatusInvalidEnumValue';
+import { StringValueObject } from '../../../shared/domain/valueObject/string.valueObject';
+import { CustomerStatusInvalidEnumValue } from '../errors/customerStatusInvalidEnumValue.error';
 
 export enum CustomerStates {
   ACTIVE = 'Active',

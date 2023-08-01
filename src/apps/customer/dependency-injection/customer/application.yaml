@@ -1,20 +1,20 @@
 services:
-  Customer.domain.CustomerRepository:
-    class: ../../../../contexts/customer/infrastructure/persistence/TypeOrmCustomerRepository
-    arguments: ['@Customer.Shared.ConnectionManager']
+  customer.domain.CustomerRepository:
+    class: ../../../../contexts/customer/infrastructure/persistence/typeOrmCustomer.repository.ts
+    arguments: ['@customer.shared.ConnectionManager']
 
-  Customer.application.CustomerCreator:
-    class: ../../../../contexts/customer/application/create/CustomerCreator
-    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+  customer.application.CustomerCreator:
+    class: ../../../../contexts/customer/application/create/customerCreator.useCase
+    arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']
 
-  Customer.application.CustomerGetById:
-    class: ../../../../contexts/customer/application/getById/CustomerGetById
-    arguments: ['@Customer.domain.CustomerRepository']
+  customer.application.CustomerGetById:
+    class: ../../../../contexts/customer/application/getById/customerGetById.useCase
+    arguments: ['@customer.domain.CustomerRepository']
 
-  Customer.application.CustomerInactivator:
-    class: ../../../../contexts/customer/application/inactivate/CustomerInactivator
-    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+  customer.application.CustomerInactivator:
+    class: ../../../../contexts/customer/application/inactivate/customerInactivator.useCase
+    arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']
 
-  Customer.application.CustomerDeleter:
-    class: ../../../../contexts/customer/application/delete/CustomerDeleter
-    arguments: ['@Customer.domain.CustomerRepository', '@Customer.Shared.domain.EventBus']
+  customer.application.CustomerDeleter:
+    class: ../../../../contexts/customer/application/delete/customerDeleter.useCase
+    arguments: ['@customer.domain.CustomerRepository', '@customer.shared.domain.EventBus']

@@ -1,7 +1,3 @@
 imports:
   - { resource: ./application.yaml }
 
-services:
-  Customer.EnvironmentArranger:
-    class: ../../../../../tests/contexts/shared/infrastructure/mongo/MongoEnvironmentArranger
-    arguments: ['@Customer.Shared.ConnectionManager']

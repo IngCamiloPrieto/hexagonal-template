@@ -1,20 +1,20 @@
 services:
-  Apps.customer.controllers.StatusGetController:
-    class: ../../controllers/StatusGetController
+  apps.customer.controllers.StatusGetController:
+    class: ../../controllers/statusGet.controller
     arguments: []
 
-  Apps.customer.controllers.CustomerPostController:
-    class: ../../controllers/CustomerPostController
-    arguments: ['@Customer.application.CustomerCreator']
+  apps.customer.controllers.CustomerPostController:
+    class: ../../controllers/customerPost.controller
+    arguments: ['@customer.application.CustomerCreator']
 
-  Apps.customer.controllers.CustomerGetByIdController:
-    class: ../../controllers/CustomerGetByIdController
-    arguments: ['@Customer.application.CustomerGetById']
+  apps.customer.controllers.CustomerGetByIdController:
+    class: ../../controllers/customerGetById.controller
+    arguments: ['@customer.application.CustomerGetById']
 
-  Apps.customer.controllers.CustomerInactivatePutController:
-    class: ../../controllers/CustomerInactivatePutController
-    arguments: ['@Customer.application.CustomerInactivator']
+  apps.customer.controllers.CustomerInactivatePutController:
+    class: ../../controllers/customerInactivatePut.controller
+    arguments: ['@customer.application.CustomerInactivator']
 
-  Apps.customer.controllers.CustomerDeleteController:
-    class: ../../controllers/CustomerDeleteController
-    arguments: ['@Customer.application.CustomerDeleter']
+  apps.customer.controllers.CustomerDeleteController:
+    class: ../../controllers/customerDelete.controller
+    arguments: ['@customer.application.CustomerDeleter']

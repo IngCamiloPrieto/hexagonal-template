@@ -1,11 +1,11 @@
 import { EventBus } from '../../../shared/domain/eventBus';
 import { Result } from '../../../shared/domain/result';
-import { PrimitivesCustomer } from '../../domain/customer';
-import { CustomerEmail } from '../../domain/valueObjects/customerEmail';
-import { CustomerId } from '../../domain/valueObjects/customerId';
-import { CustomerName } from '../../domain/valueObjects/customerName';
-import { CustomerRepository } from '../../domain/customerRepository';
-import { CustomerCreate } from '../../domain/actions/customerCreate';
+import { PrimitivesCustomer } from '../../domain/customer.aggregate';
+import { CustomerEmail } from '../../domain/valueObjects/customerEmail.valueObject';
+import { CustomerId } from '../../domain/valueObjects/customerId.valueObject';
+import { CustomerName } from '../../domain/valueObjects/customerName.valueObject';
+import { CustomerRepository } from '../../domain/customer.repository';
+import { CustomerCreate } from '../../domain/actions/customerCreate.action';
 
 export class CustomerCreator {
   constructor(private repository: CustomerRepository, private eventBus: EventBus) {}

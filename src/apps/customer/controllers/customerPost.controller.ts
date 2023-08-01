@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Controller } from './controller';
-import { CustomerCreator } from '../../../contexts/customer/application/create/customerCreator';
+import { CustomerCreator } from '../../../contexts/customer/application/create/customerCreator.useCase';
 
 type CustomerPostRequest = Request & {
   body: {

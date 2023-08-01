@@ -1,5 +1,5 @@
-import { EnumValueObject } from '../valueObject/enumValueObject';
-import { InvalidArgumentError } from '../valueObject/invalidArgumentError';
+import { EnumValueObject } from '../valueObject/enum.valueObject';
+import { InvalidArgumentError } from '../valueObject/invalidArgument.error';
 
 export enum OrderTypes {
   ASC = 'asc',

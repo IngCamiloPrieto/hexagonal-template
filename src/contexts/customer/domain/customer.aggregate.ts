@@ -1,8 +1,8 @@
 import { AggregateRoot } from '../../shared/domain/aggregateRoot';
-import { CustomerEmail } from './valueObjects/customerEmail';
-import { CustomerId } from './valueObjects/customerId';
-import { CustomerName } from './valueObjects/customerName';
-import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus';
+import { CustomerEmail } from './valueObjects/customerEmail.valueObject';
+import { CustomerId } from './valueObjects/customerId.valueObject';
+import { CustomerName } from './valueObjects/customerName.valueObject';
+import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus.valueObject';
 
 export class Customer extends AggregateRoot {
   readonly id: CustomerId;

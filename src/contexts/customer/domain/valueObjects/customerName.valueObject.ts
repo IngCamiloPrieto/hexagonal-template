@@ -1,5 +1,5 @@
-import { StringValueObject } from "../../../shared/domain/valueObject/stringValueObject";
-import { CustomerNameLengthExceeded } from "../errors/customerNameLengthExceeded";
+import { StringValueObject } from "../../../shared/domain/valueObject/string.valueObject";
+import { CustomerNameLengthExceeded } from "../errors/customerNameLengthExceeded.error";
 
 export class CustomerName extends StringValueObject {
     constructor(value: string) {

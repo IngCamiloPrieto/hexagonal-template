@@ -1,6 +1,6 @@
-import { Customer } from '../customer';
-import { CustomerInactivateDomainEvent } from '../events/customerInactivateDomainEvent';
-import { CustomerStates, CustomerStatus } from '../valueObjects/customerStatus';
+import { Customer } from '../customer.aggregate';
+import { CustomerInactivateDomainEvent } from '../events/customerInactivate.domainEvent';
+import { CustomerStates, CustomerStatus } from '../valueObjects/customerStatus.valueObject';
 
 export class CustomerInactivate {
   static handle(customer: Customer): Customer {

@@ -1,6 +1,6 @@
 import { Criteria } from '../../shared/domain/criteria/criteria';
-import { Customer } from './customer';
-import { CustomerId } from './valueObjects/customerId';
+import { Customer } from './customer.aggregate';
+import { CustomerId } from './valueObjects/customerId.valueObject';
 
 export interface CustomerRepository {
   find(id: CustomerId): Promise<Customer | null>;

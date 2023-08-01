@@ -1,10 +1,10 @@
 import { EventBus } from '../../../shared/domain/eventBus';
-import { PrimitivesCustomer } from '../../domain/customer';
-import { CustomerId } from '../../domain/valueObjects/customerId';
-import { CustomerRepository } from '../../domain/customerRepository';
-import { CustomerInactivate } from '../../domain/actions/customerInactivate';
+import { PrimitivesCustomer } from '../../domain/customer.aggregate';
+import { CustomerId } from '../../domain/valueObjects/customerId.valueObject';
+import { CustomerRepository } from '../../domain/customer.repository';
+import { CustomerInactivate } from '../../domain/actions/customerInactivate.action';
 import { Result } from '../../../shared/domain/result';
-import { CustomerNotExist } from '../../domain/errors/customerNotExist';
+import { CustomerNotExist } from '../../domain/errors/customerNotExist.error';
 
 export class CustomerInactivator {
   constructor(private repository: CustomerRepository, private eventBus: EventBus) {}
