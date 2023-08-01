@@ -21,14 +21,14 @@ export class CustomerBackendApp {
   }
 
   async stop() {
-    const rabbitMQConnection = container.get<RabbitMqConnection>('customer.shared.rabbitMQConnection');
+    const rabbitMQConnection = container.get<RabbitMqConnection>('Customer.Shared.RabbitMQConnection');
     await rabbitMQConnection.close();
     return this.server?.stop();
   }
 
   private async configureEventBus() {
-    const eventBus = container.get<EventBus>('customer.shared.domain.EventBus');
-    const rabbitMQConnection = container.get<RabbitMqConnection>('customer.shared.rabbitMQConnection');
+    const eventBus = container.get<EventBus>('Customer.Shared.domain.EventBus');
+    const rabbitMQConnection = container.get<RabbitMqConnection>('Customer.Shared.RabbitMQConnection');
     await rabbitMQConnection.connect();
 
     eventBus.addSubscribers(DomainEventSubscribers.from(container));
