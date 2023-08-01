@@ -1,4 +1,4 @@
-import { Uuid } from './valueObject/uuid';
+import { Uuid } from './valueObject/uuid.valueObject';
 
 export abstract class DomainEvent {
   static EVENT_NAME: string;

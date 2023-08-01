@@ -1,5 +1,5 @@
-import { Customer } from '../customer';
-import { CustomerDeleteDomainEvent } from '../events/customerDeleteDomainEvent';
+import { Customer } from '../customer.aggregate';
+import { CustomerDeleteDomainEvent } from '../events/customerDelete.domainEvent';
 
 export class CustomerDelete {
   static handle(customer: Customer): Customer {

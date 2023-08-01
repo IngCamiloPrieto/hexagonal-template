@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Controller } from './controller';
-import { CustomerDeleter } from '../../../contexts/customer/application/delete/customerDeleter';
+import { CustomerDeleter } from '../../../contexts/customer/application/delete/customerDeleter.useCase';
 
 type CustomerDeleteRequest = Request;
 export class CustomerDeleteController implements Controller {

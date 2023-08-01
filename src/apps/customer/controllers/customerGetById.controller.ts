@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Controller } from './controller';
-import { CustomerGetById } from '../../../contexts/customer/application/getById/customerGetById';
+import { CustomerGetById } from '../../../contexts/customer/application/getById/customerGetById.useCase';
 
 type CustomerGetByIdRequest = Request;
 export class CustomerGetByIdController implements Controller {

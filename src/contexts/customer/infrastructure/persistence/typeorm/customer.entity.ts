@@ -1,10 +1,10 @@
 import { EntitySchema } from 'typeorm';
 import { ValueObjectTransformer } from '../../../../shared/infrastructure/persistence/typeorm/valueObjectTransformer';
-import { CustomerId } from '../../../domain/valueObjects/customerId';
-import { Customer } from '../../../domain/customer';
-import { CustomerEmail } from '../../../domain/valueObjects/customerEmail';
-import { CustomerName } from '../../../domain/valueObjects/customerName';
-import { CustomerStatus } from '../../../domain/valueObjects/customerStatus';
+import { CustomerId } from '../../../domain/valueObjects/customerId.valueObject';
+import { Customer } from '../../../domain/customer.aggregate';
+import { CustomerEmail } from '../../../domain/valueObjects/customerEmail.valueObject';
+import { CustomerName } from '../../../domain/valueObjects/customerName.valueObject';
+import { CustomerStatus } from '../../../domain/valueObjects/customerStatus.valueObject';
 
 export const CustomerEntity = new EntitySchema<Customer>({
   name: 'Customer',

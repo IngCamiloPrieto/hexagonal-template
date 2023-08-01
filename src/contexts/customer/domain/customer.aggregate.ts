@@ -1,8 +1,8 @@
 import { AggregateRoot } from '../../shared/domain/aggregateRoot';
-import { CustomerEmail } from './valueObjects/customerEmail';
-import { CustomerId } from './valueObjects/customerId';
-import { CustomerName } from './valueObjects/customerName';
-import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus';
+import { CustomerEmail } from './valueObjects/customerEmail.valueObject';
+import { CustomerId } from './valueObjects/customerId.valueObject';
+import { CustomerName } from './valueObjects/customerName.valueObject';
+import { CustomerStates, CustomerStatus } from './valueObjects/customerStatus.valueObject';
 
 export class Customer extends AggregateRoot {
   readonly id: CustomerId;
@@ -18,7 +18,7 @@ export class Customer extends AggregateRoot {
     this.status = status;
   }
 
-  static fromPrimitives(plainData: { id: string; name: string; email: string, status: CustomerStates }): Customer {
+  static fromPrimitives(plainData: { id: string; name: string; email: string; status: CustomerStates }): Customer {
     return new Customer(
       new CustomerId(plainData.id),
       new CustomerName(plainData.name),

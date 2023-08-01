@@ -1,69 +1,60 @@
 services:
-  Customer.Shared.MongoConfig:
-    factory:
-      class: ../../../../contexts/shared/infrastructure/persistence/mongo/MongoConfigFactory
-      method: 'createConfig'
-
-  Customer.Shared.PostgreConfig:
+  customer.shared.PostgreConfig:
     factory:
       class: ../../../../contexts/shared/infrastructure/persistence/postgre/TypeOrmConfigFactory
       method: 'createConfig'
 
-  Customer.Shared.RabbitMQConfig:
+  customer.shared.RabbitMQConfig:
     factory:
       class: ../../../../contexts/shared/infrastructure/rabbitMQ/RabbitMQConfigFactory
       method: 'createConfig'
 
-  Customer.Shared.domain.EventBus:
+  customer.shared.domain.EventBus:
     factory:
       class: ../../../../contexts/shared/infrastructure/rabbitMQ/RabbitMQEventBusFactory
       method: 'create'
     arguments:
       [
-        '@Customer.Shared.DomainEventFailoverPublisher',
-        '@Customer.Shared.RabbitMQConnection',
-        '@Customer.Shared.RabbitMQqueueFormatter',
-        '@Customer.Shared.RabbitMQConfig'
+        '@customer.shared.DomainEventFailoverPublisher',
+        '@customer.shared.RabbitMQConnection',
+        '@customer.shared.RabbitMQqueueFormatter',
+        '@customer.shared.RabbitMQConfig'
       ]
 
-  Customer.Shared.ConnectionManager:
+  customer.shared.ConnectionManager:
     factory:
       class: ../../../../contexts/shared/infrastructure/persistence/typeorm/TypeOrmClientFactory
       method: 'createClient'
-    arguments: ['customer', '@Customer.Shared.PostgreConfig']
+    arguments: ['customer', '@customer.shared.PostgreConfig']
 
-  Customer.Shared.RabbitMQQueueFormatter:
+  customer.shared.RabbitMQqueueFormatter:
     class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQqueueFormatter
     arguments: ['customer']
 
-  Customer.Shared.RabbitMQConnection:
+  customer.shared.RabbitMQConnection:
     class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMqConnection
-    arguments: ['@Customer.Shared.RabbitMQConfig']
+    arguments: ['@customer.shared.RabbitMQConfig']
 
-  Customer.Shared.RabbitMQqueueFormatter:
-    class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQqueueFormatter
-    arguments: ['customer']
-
-  Customer.Shared.RabbitMQConfigurer:
+  customer.shared.RabbitMQConfigurer:
     class: ../../../../contexts/shared/infrastructure/eventBus/rabbitMq/RabbitMQConfigurer
-    arguments: ["@Customer.Shared.RabbitMQConnection", "@Customer.Shared.RabbitMQQueueFormatter"]
+    arguments: ['@customer.shared.RabbitMQConnection', '@customer.shared.RabbitMQqueueFormatter']
 
-  Customer.Shared.DomainEventFailoverPublisher:
+  customer.shared.DomainEventFailoverPublisher:
     class: ../../../../contexts/shared/infrastructure/eventBus/domainEventFailoverPublisher/DomainEventFailoverPublisher
-    arguments: ['@Customer.Shared.ConnectionManager']
+    arguments: ['@customer.shared.ConnectionManager']
 
-  Customer.Shared.CommandHandlers:
+  customer.shared.CommandHandlers:
     class: ../../../../contexts/shared/infrastructure/commandBus/CommandHandlers
     arguments: ['!tagged commandHandler']
 
-  Customer.Shared.domain.CommandBus:
+  customer.shared.domain.CommandBus:
     class: ../../../../contexts/shared/infrastructure/commandBus/InMemoryCommandBus
-    arguments: ['@Customer.Shared.CommandHandlers']
+    arguments: ['@customer.shared.CommandHandlers']
 
-  Customer.Shared.QueryHandlers:
+  customer.shared.QueryHandlers:
     class: ../../../../contexts/shared/infrastructure/queryBus/QueryHandlers
     arguments: ['!tagged queryHandler']
 
-  Customer.Shared.domain.QueryBus:
+  customer.shared.domain.QueryBus:
     class: ../../../../contexts/shared/infrastructure/queryBus/InMemoryQueryBus
-    arguments: ['@Customer.Shared.QueryHandlers']
+    arguments: ['@customer.shared.QueryHandlers']
